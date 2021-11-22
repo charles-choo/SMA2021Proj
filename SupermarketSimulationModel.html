@@ -50,6 +50,57 @@
         onchange="redrawWindow();"
       />
     </div>
+    <button
+      style="position: absolute; bottom: 0; right: 20%"
+      onClick="download_csv_file()"
+    >
+      Download Simulation data
+    </button>
+
+    <script>
+      //create CSV file data in an array
+      //create a user-defined function to download CSV file
+      function download_csv_file() {
+        //define the heading for each row of the data
+
+        const csvString = [
+          [
+            "id",
+            "shoppingTime",
+            "timeAdmitted",
+            "timeInSystem",
+            "type",
+            "waitTime",
+            "servedBy",
+          ],
+          ...customerRecords.map((item) => [
+            item.id,
+            item.shoppingTime,
+            item.timeAdmitted,
+            item.timeInSystem,
+            item.type,
+            item.waitTime,
+            item.servedBy,
+          ]),
+        ]
+          .map((e) => e.join(","))
+          .join("\n");
+
+        console.log(csvString);
+
+        //display the created CSV data on the web browser
+        document.write(csvString);
+
+        var hiddenElement = document.createElement("a");
+        hiddenElement.href =
+          "data:text/csv;charset=utf-8," + encodeURI(csvString);
+        hiddenElement.target = "_blank";
+
+        //provide the name for the CSV file to be downloaded
+        hiddenElement.download = "SimulationRun.csv";
+        hiddenElement.click();
+      }
+    </script>
 
     <a
       id="credits"
