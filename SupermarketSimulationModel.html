@@ -7,6 +7,9 @@
     <!-- d3 is for data visualization -->
     <script type="text/javascript" src="lib/d3.min.js"></script>
 
+    <!-- plotly is for drawing graphs -->
+    <script type="text/javascript" src="lib/plotly.min.js"></script>
+
     <!-- custom styles for this application -->
     <link rel="stylesheet" href="styles/basicagentmodel.css" media="screen" />
   </head>
@@ -31,7 +34,7 @@
         id="slider1"
         type="range"
         min="0"
-        value="275"
+        value="1000"
         max="1000"
         step="10"
         onchange="redrawWindow();"
@@ -113,5 +116,16 @@
       type="text/javascript"
       src="lib/SupermarketSimulationModelGabYS.js"
     ></script>
+
+    <!-- Add in Charts -->
+    <!--     <div
+      id="chart1"
+      style="position: absolute; top: 0%; left: 66%; width: 35%; height: 55%"
+    ></div>
+    <div
+      id="chart2"
+      style="position: absolute; top: 40%; left: 66%; width: 35%; height: 55%"
+    ></div> -->
+    <script type="text/javascript" src="lib/PlotGraph.js"></script>
   </body>
 </html>
